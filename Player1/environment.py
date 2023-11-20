@@ -24,8 +24,8 @@ class Environment:
         10**4-1 = 9999
         """
         assert(len(number) <= 4)
-        assert(set(number) <= set(map(str, range(10))))
-        return int(number, base=10)
+        assert(set(number) <= set(map(str, range(9))))
+        return int(number, base=9)
 
     @staticmethod
     def _number_from_index(index):
@@ -33,8 +33,8 @@ class Environment:
         assert(0 <= index < config.max_guesses)
         digits = []
         while index > 0:
-            digits.append(str(index % 10))
-            index = index // 10
+            digits.append(str(index % 9))
+            index = index // 9
         return "".join(reversed(digits)).zfill(4)
     
     @staticmethod
@@ -54,5 +54,3 @@ class Environment:
             return 1
         else:
             return -1
-         
-    
